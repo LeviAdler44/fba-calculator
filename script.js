@@ -83,8 +83,12 @@ function determineSizeTier(weight, length, width, height) {
 
 // Lookup fulfillment fee
 function getFulfillmentFee(category, sizeTier, weight, price) {
-  // Determine if this is low-price item
-  const lowPrice = price <= 9.99;
+  // Determine if this is a low‑price item.  
+  // Use a strict threshold of < $10 to avoid edge‑case rounding issues when
+  // customers slide the price slightly above $9.99.  Products priced below
+  // $10 qualify for the low‑price FBA program; at $10 or above, regular
+  // fulfillment fees apply.
+  const lowPrice = price < 10;
   const isApparel = APPAREL_CATEGORIES.includes(category);
   let tableKey;
   if (lowPrice) {

@@ -22,30 +22,30 @@
             <div>
               <label for="category" class="block text-sm font-medium mb-1">Product category</label>
               <!-- Slight gray background on inputs for better contrast -->
-              <select id="category" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-red-500 focus:border-red-500"></select>
+              <select id="category" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-gray-400 focus:border-gray-400"></select>
             </div>
             <!-- Selling price / unit -->
             <div>
               <label for="price" class="block text-sm font-medium mb-1">Selling price per unit (USD)</label>
-              <input type="number" id="price" step="0.01" min="0" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-red-500 focus:border-red-500" required />
+              <input type="number" id="price" step="0.01" min="0" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-gray-400 focus:border-gray-400" required />
             </div>
             <!-- COGS / unit -->
             <div>
               <label for="cogs" class="block text-sm font-medium mb-1">Cost of goods sold per unit (COGS)</label>
-              <input type="number" id="cogs" step="0.01" min="0" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-red-500 focus:border-red-500" required />
+              <input type="number" id="cogs" step="0.01" min="0" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-gray-400 focus:border-gray-400" required />
             </div>
             <!-- Weight -->
             <div>
               <label for="weight" class="block text-sm font-medium mb-1">Weight (lb)</label>
-              <input type="number" id="weight" step="0.01" min="0" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-red-500 focus:border-red-500" required />
+              <input type="number" id="weight" step="0.01" min="0" class="w-full border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-gray-400 focus:border-gray-400" required />
             </div>
             <!-- Dimensions -->
             <div class="sm:col-span-2">
               <label class="block text-sm font-medium mb-1">Dimensions (inches)</label>
               <div class="flex space-x-2">
-                <input type="number" id="length" step="0.01" min="0" placeholder="L" class="flex-1 border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-red-500 focus:border-red-500" required />
-                <input type="number" id="width" step="0.01" min="0" placeholder="W" class="flex-1 border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-red-500 focus:border-red-500" required />
-                <input type="number" id="height" step="0.01" min="0" placeholder="H" class="flex-1 border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-red-500 focus:border-red-500" required />
+                <input type="number" id="length" step="0.01" min="0" placeholder="L" class="flex-1 border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-gray-400 focus:border-gray-400" required />
+                <input type="number" id="width" step="0.01" min="0" placeholder="W" class="flex-1 border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-gray-400 focus:border-gray-400" required />
+                <input type="number" id="height" step="0.01" min="0" placeholder="H" class="flex-1 border border-gray-300 rounded-md p-2 bg-gray-100 focus:ring-gray-400 focus:border-gray-400" required />
               </div>
             </div>
           </div>
@@ -82,7 +82,8 @@
         <div id="slider-container" class="mt-8 hidden">
           <h2 class="text-lg font-semibold mb-2">Adjust price</h2>
           <div class="flex items-center space-x-4">
-            <input type="range" id="price-slider" min="0" max="100" step="0.01" class="w-full" />
+            <!-- Customize accent color on the range slider to avoid harsh green. Using a blue accent for consistency with call‑to‑action colors. -->
+            <input type="range" id="price-slider" min="0" max="100" step="0.01" class="w-full accent-blue-600" />
             <span id="slider-value" class="text-sm font-medium"></span>
           </div>
         </div>
