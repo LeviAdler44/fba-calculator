@@ -147,5 +147,17 @@
        Scripts are loaded in plain mode to avoid module import issues when hosted via file:// or GitHub Pages. -->
   <script src="./feeTables.js"></script>
   <script src="./script.js"></script>
+
+  <script>
+    function sendHeight() {
+      const height = document.body.scrollHeight;
+      window.parent.postMessage({ type: 'resize-iframe', height }, '*');
+    }
+
+    window.addEventListener('load', sendHeight);
+    const observer = new MutationObserver(sendHeight);
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
+
 </body>
 </html>
