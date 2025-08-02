@@ -149,14 +149,24 @@
   <script src="./script.js"></script>
 
   <script>
-    function sendHeight() {
-      const height = document.body.scrollHeight;
-      window.parent.postMessage({ type: 'resize-iframe', height }, '*');
-    }
+    // --- Dynamic iframe height communication ---
+    (() => {
+      function sendHeight() {
+        const height = document.documentElement.scrollHeight;
+        window.parent?.postMessage({ type: 'resize-iframe', height }, '*');
+      }
 
-    window.addEventListener('load', sendHeight);
-    const observer = new MutationObserver(sendHeight);
-    observer.observe(document.body, { childList: true, subtree: true });
+      // Fire once on full load
+      window.addEventListener('load', () => {
+        sendHeight();
+        // Fallback double‑fire after 250 ms in case late assets shift layout
+        setTimeout(sendHeight, 250);
+      });
+
+      // Observe any future size changes (results reveal, slider move, etc.)
+      const resizeObserver = new ResizeObserver(() => sendHeight());
+      resizeObserver.observe(document.body);
+    })();
   </script>
 
 </body>
